@@ -1,0 +1,38 @@
+<div class="container">
+  <h1>🌿 ToDo List</h1>
+
+  <div class="form">
+    <input type="text" [(ngModel)]="newTitle" placeholder="Task title" />
+    <input type="text" [(ngModel)]="newDescription" placeholder="Description" />
+    <input type="date" [(ngModel)]="newDueDate" />
+    
+    <button *ngIf="!editMode" (click)="addTodo()">Add Task</button>
+    <button *ngIf="editMode" (click)="updateTodo()">Update</button>
+    <button *ngIf="editMode" class="cancel" (click)="cancelEdit()">Cancel</button>
+  </div>
+
+  <div class="filters">
+    <button [class.active]="filterStatus === 'all'" (click)="setFilter('all')">All</button>
+    <button [class.active]="filterStatus === 'pending'" (click)="setFilter('pending')">Pending</button>
+    <button [class.active]="filterStatus === 'done'" (click)="setFilter('done')">Completed</button>
+  </div>
+
+  <div class="todo-list" *ngIf="filteredTodos.length > 0; else emptyState">
+    <div class="todo-item" *ngFor="let todo of filteredTodos">
+      <input type="checkbox" [checked]="todo.status === 'done'" (change)="toggleCompleted(todo)" />
+      <div class="details">
+        <h3 [class.done]="todo.status === 'done'">{{ todo.title }}</h3>
+        <p>{{ todo.description }}</p>
+        <small>Due: {{ todo.dueDate | date }}</small>
+      </div>
+      <div class="actions">
+        <button (click)="edit(todo)">Edit</button>
+        <button class="delete" (click)="deleteTodo(todo._id!)">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #emptyState>
+    <p class="empty">No tasks found. Add a new one!</p>
+  </ng-template>
+</div>

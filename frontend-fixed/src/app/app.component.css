@@ -1,0 +1,87 @@
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fefefe;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.15);
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #006400;
+  margin-bottom: 20px;
+}
+
+.form input, .form button {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background: #008000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 8px;
+}
+
+button:hover {
+  background: #006400;
+}
+
+button.cancel {
+  background: #ccc;
+  color: #333;
+}
+
+.filters {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.filters button {
+  margin: 0 5px;
+}
+
+.filters button.active {
+  background: #006400;
+  color: #fff;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  background: #f7fff7;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 10px;
+  justify-content: space-between;
+}
+
+.todo-item .details {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.todo-item h3 {
+  margin: 0;
+}
+
+.todo-item h3.done {
+  text-decoration: line-through;
+  color: #666;
+}
+
+.todo-item .actions button {
+  margin-left: 5px;
+}
+
+.empty {
+  text-align: center;
+  color: #888;
+}
