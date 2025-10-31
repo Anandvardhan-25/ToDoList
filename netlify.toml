@@ -1,7 +1,7 @@
 [build]
-  base = "frontend-fixed"
+  command = "cd frontend-fixed && npm ci && npx ng build --configuration production"
   publish = "frontend-fixed/dist/frontend-fixed"
-  command = "npm install -g @angular/cli && npm install && ng build --configuration production"
 
 [build.environment]
-  NODE_VERSION = "20"
+  NODE_VERSION = "20.11.1"
+  NPM_FLAGS = "--legacy-peer-deps"
